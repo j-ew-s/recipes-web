@@ -1,0 +1,20 @@
+
+<div class="card card-structurre" >
+    <div class="card-body">
+        <p class="card-title">{{recipe.name}}</p>
+        <p class="card-text">{{recipe.getDescriptionShort(90)}}</p> 
+        <div class="card-badges-bottom">
+            <span  *ngFor="let tag of recipe.tags" class=" badge badge-primary card-badges-bottom-margin">
+                <label for="" class="card-badges-bottom-text" [title]="tag">{{tag}}</label>
+            </span>
+        </div>
+        <div class="card-bottom">
+            <a href={{recipe.link}} class="card-link" title="Access Link">
+                <span class="card-icon material-icons icon-image-preview">link</span>
+            </a>
+            <a href={{recipe.link}} class="card-link">
+                <span class="card-icon material-icons icon-image-preview" title="View Recipe">remove_red_eye</span>
+            </a>
+        </div>
+    </div>
+</div>

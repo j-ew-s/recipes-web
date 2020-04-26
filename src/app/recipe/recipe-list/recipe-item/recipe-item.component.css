@@ -1,0 +1,45 @@
+.card-structurre{
+ 
+    height: 195px;
+    margin-bottom: 10%;
+}
+
+.card-badges-bottom{
+    position: absolute; 
+    top: 65%;
+    margin-top: 3%;
+}
+
+.card-badges-bottom-margin{
+    margin: 1px;
+}
+
+.card-badges-bottom-text{
+    margin: 1px;
+    display: block;
+    margin-top: 10%;
+}
+
+.card-bottom{
+    position: absolute; 
+    top: 80%;
+    margin-top: 3%;
+}
+
+.card-title{
+    font-size: large; 
+    margin-left: 2%;
+}
+
+.card-text{
+    color: #585353;
+    overflow-wrap: break-word;
+}
+
+.card-icon{
+    color : #240f5c;
+}
+
+.card-icon-edit{
+    margin-left: 5%;
+}
