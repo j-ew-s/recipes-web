@@ -12,7 +12,7 @@
             <a href={{recipe.link}} class="card-link" title="Access Link">
                 <span class="card-icon material-icons icon-image-preview">link</span>
             </a>
-            <a href={{recipe.link}} class="card-link">
+            <a (click)="displayDetails(recipe.id)" class="card-link">
                 <span class="card-icon material-icons icon-image-preview" title="View Recipe">remove_red_eye</span>
             </a>
         </div>
