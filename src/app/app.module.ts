@@ -11,6 +11,7 @@ import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component'
 import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
 import { RecipeFormComponent } from './recipe/recipe-form/recipe-form.component';
 import { PageNotFoundComponent } from './handlers/page-not-found/page-not-found.component';
+import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
 
 
 
@@ -21,6 +22,7 @@ import { PageNotFoundComponent } from './handlers/page-not-found/page-not-found.
     RecipeItemComponent,
     RecipeFormComponent,
     PageNotFoundComponent,
+    RecipeDetailComponent,
   ],
   imports: [
     BrowserModule,
