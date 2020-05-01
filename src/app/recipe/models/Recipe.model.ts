@@ -8,7 +8,6 @@ export class  Recipe{
     public tags : string[];
 
     constructor(recipe : object){
-
         this.id = recipe['ID'];
         this.name = recipe['Name'];
         this.link = recipe['Link'];

@@ -1,5 +1,5 @@
 
-<div class="card card-structurre" >
+<div class="card card-structurre"  [class.lastRead]="wasLastSelected(recipe.id)" >
     <div class="card-body">
         <p class="card-title">{{recipe.name}}</p>
         <p class="card-text">{{recipe.getDescriptionShort(90)}}</p> 

@@ -19,10 +19,25 @@ export class RecipeService extends BaseService {
 
   }
 
+  /*
+    Uses httpCLient to call recipes
+    the URL is passed by getRecipes property (from BaseService)
+  */
   getAll() : Observable<object>{
 
     return this.httpClient
       .get<object>(this.getRecipes);
+
+  }
+
+  /*
+    Uses httpCLient to call recipes
+    the URL is passed by getRecipes property (from BaseService)
+  */
+  getById(id : string) : Observable<object>{
+
+    return this.httpClient
+      .get<object>(this.getRecipeById+'/'+id);
 
   }
 

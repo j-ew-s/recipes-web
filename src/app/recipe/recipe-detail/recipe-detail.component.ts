@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -10,7 +10,8 @@ export class RecipeDetailComponent implements OnInit {
 
   public id: string;
 
-  constructor(private activatedRouter : ActivatedRoute) { }
+  constructor(private activatedRouter : ActivatedRoute, 
+              private router : Router) { }
 
   ngOnInit(): void {
     /* 
@@ -43,6 +44,30 @@ export class RecipeDetailComponent implements OnInit {
         this.id = id;
       }
     )
+
+  }
+
+  /*
+    Esta função retorna para a lista de Recipes passando via URL, nos 
+    parametros opcionais o ID da ultima recipe lida.
+
+    Para navegar, utilizamos o navigate do Router (@angular/router).
+    onde passamos os parametros por array:
+      - rota (previamente definida no RouterModule) : recipes;
+      - objeto de parametros opcionais : 
+        - propriedade id com valor o id lido neste component
+   */
+  backListWithLastViewed(){
+
+    this.router.navigate(['recipes', {"id" : this.id}]);
+
+    /*
+      Podemos utilizar esta segunda opção de roteamento utilizando o 
+      relativeTo.
+
+      aqui o ../ faz uma referencia à secção anterior da URL (recipes)
+    */
+    //this.router.navigate(['../', {"id" : this.id}], {relativeTo : this.activatedRouter})
 
   }
 

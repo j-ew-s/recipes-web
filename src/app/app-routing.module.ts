@@ -49,8 +49,9 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
 const routes: Routes = [
   {path : '', redirectTo : 'recipes', pathMatch : 'full'},
   {path : 'recipes', component : RecipeListComponent},
-  {path : 'recipes/detail/:id', component : RecipeDetailComponent},
-  {path : 'recipes/form', component : RecipeFormComponent},
+  {path : 'recipes/:id/detail', component : RecipeDetailComponent},
+  {path : "recipes/:id/edit", component : RecipeFormComponent},
+  {path : "recipes/new", component : RecipeFormComponent},
   {path : '**', component : PageNotFoundComponent},
 ];
 

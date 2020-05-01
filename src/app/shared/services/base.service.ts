@@ -11,6 +11,7 @@ export class BaseService {
 
   public apiURL: string;
   public getRecipes :string; 
+  public getRecipeById :string; 
 
   constructor() {
     this.getEnvConfiguration();
@@ -33,6 +34,7 @@ export class BaseService {
   */
   private setRecipesRoutes(){
     this.getRecipes = this.apiURL+"/recipes/";
+    this.getRecipeById = this.apiURL+"/recipes/id";
   }
 
 }

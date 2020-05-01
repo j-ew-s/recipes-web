@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms'
 
 // APP and Routing 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,7 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
