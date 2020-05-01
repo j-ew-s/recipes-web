@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
 import { RecipeFormComponent } from './recipe/recipe-form/recipe-form.component';
-import { HandlersComponent } from './handlers/handlers.component';
+import { PageNotFoundComponent } from './handlers/page-not-found/page-not-found.component';
+
 
 
 /*
@@ -23,10 +24,11 @@ import { HandlersComponent } from './handlers/handlers.component';
 
 */
 const routes: Routes = [
-  {path : '', component : RecipeListComponent},
+  {path : '', redirectTo : 'recipes', pathMatch : 'full'},
+  {path : 'recipes', component : RecipeListComponent},
   {path : 'details', component : RecipeListComponent},
-  {path : 'recipe', component : RecipeFormComponent},
-  {path : '**', component : HandlersComponent},
+  {path : 'recipes/form', component : RecipeFormComponent},
+  {path : '**', component : PageNotFoundComponent},
 ];
 
 @NgModule({

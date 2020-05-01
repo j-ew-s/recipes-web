@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
 import { RecipeFormComponent } from './recipe/recipe-form/recipe-form.component';
-import { HandlersComponent } from './handlers/handlers.component';
+import { PageNotFoundComponent } from './handlers/page-not-found/page-not-found.component';
 
 
 
@@ -20,8 +20,7 @@ import { HandlersComponent } from './handlers/handlers.component';
     RecipeListComponent,
     RecipeItemComponent,
     RecipeFormComponent,
-    HandlersComponent,
-
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
