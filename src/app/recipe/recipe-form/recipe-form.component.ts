@@ -2,12 +2,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap} from '@angular/router'
 //import { FormGroup, FormControl} from '@angular/forms';
-import { FormBuilder} from '@angular/forms';
+import { FormBuilder, Validators} from '@angular/forms';
 
 // Services
 import { RecipeService } from '../services/recipe.service';
 import { Recipe } from '../models/Recipe.model';
 import { ListRecipes } from '../models/ListRecipes.model';
+import { FieldPatternValidator, URLPatternValidator } from 'src/app/shared/validators/form.validators';
 
 
 @Component({
@@ -20,12 +21,20 @@ export class RecipeFormComponent implements OnInit {
   public recipeEdit: Recipe;
   public editMode: boolean = false;
 
+  /*
+    Um FormGroup é criado pelo FormBuilder por meio da função group.
+
+    Os itens dentro de um group são os FormControllers.
+    Para as definições, de um FormControl utilizamos um array de configs.
+    1. O valor Default do FormControl.
+    2. A Validação a ser utilizada.
+  */
   public recipeFormGroup =  this.formBuilder.group({
-    name : [''],
+    name : ['', [Validators.required, Validators.minLength(3), FieldPatternValidator(/recipe\b/)]],
     description : [''],
-    link : [''],
+    link : ['', [Validators.required, URLPatternValidator]],
     tags : [''],
-    rate : ['']
+    rate : ['', [Validators.required, Validators.min(1), Validators.max(5)]]
   });
 
   // Desta Maneira podemos criar explicitando FromGroup e FormControl.
@@ -39,12 +48,25 @@ export class RecipeFormComponent implements OnInit {
     rate : new FormControl(''),
   })*/
 
+
+  /*
+    Os Gets a seguir são uma maneira de REDUZIR texto no HTML.
+    onde teriamos  recipeFormGroup.get('name') 
+    passamos a ter recipeName.
+  */
+  // Variavel Name do RecipeFormGroup
+  get recipeName(){
+    return this.recipeFormGroup.get('name');
+  }
+
   constructor(private router : Router, 
               private activatedRoute : ActivatedRoute,
               private recipeService : RecipeService,
               private formBuilder : FormBuilder) { }
 
+
   ngOnInit(): void {
+    
     /*
       Aqui estamos a verificar a URL em busca de um ID.
       Este form é compartilhado entre Edit e New recipe.
@@ -99,6 +121,19 @@ export class RecipeFormComponent implements OnInit {
         link : this.recipeEdit.link,
         tags : this.recipeEdit.tags,
         rate : this.recipeEdit.rate
+      }
+    )
+  }
+
+  submitForm(){
+    var formValue = this.recipeFormGroup.value;
+    var recipe = new Recipe(formValue);
+    console.log(recipe);
+    this.recipeService.post(recipe)
+    .subscribe(
+      (data) =>{
+        console.log(data);
+        this.router.navigate(['recipes', {"id" : data['_id']}])
       }
     )
   }

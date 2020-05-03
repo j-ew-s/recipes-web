@@ -8,6 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 // Project Files
 import { BaseService } from 'src/app/shared/services/base.service';
 import { ListRecipes } from '../models/ListRecipes.model';
+import { Recipe } from '../models/Recipe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,10 @@ export class RecipeService extends BaseService {
     return this.httpClient
       .get<object>(this.getRecipeById+'/'+id);
 
+  }
+
+  post(recipe :Recipe) : Observable<object>{
+    return this.httpClient.post( this.postRecipe, recipe, this.options );
   }
 
   errorHandler( error  : HttpErrorResponse){
