@@ -20,7 +20,7 @@ import { ListRecipes } from '../models/ListRecipes.model';
 export class RecipeListComponent implements OnInit {
 
   public recipeList : ListRecipes = new ListRecipes(null);
-
+  public loading : boolean = true;
 
 
   constructor(private recipeService : RecipeService,
@@ -42,6 +42,7 @@ export class RecipeListComponent implements OnInit {
       .subscribe(
         (data) => {
           this.recipeList = new ListRecipes(data);
+          this.loading = false;
         },
         error => console.log(error),
       );

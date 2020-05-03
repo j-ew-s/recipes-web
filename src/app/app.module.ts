@@ -11,8 +11,13 @@ import { AppComponent } from './app.component';
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
 import { RecipeFormComponent } from './recipe/recipe-form/recipe-form.component';
-import { PageNotFoundComponent } from './handlers/page-not-found/page-not-found.component';
 import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
+
+// Handlers
+import { PageNotFoundComponent } from './handlers/page-not-found/page-not-found.component';
+
+// Shared
+import { LoadginComponent } from './shared/components/loadgin/loadgin.component';
 
 
 
@@ -24,6 +29,7 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
     RecipeFormComponent,
     PageNotFoundComponent,
     RecipeDetailComponent,
+    LoadginComponent,
   ],
   imports: [
     BrowserModule,

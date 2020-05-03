@@ -18,6 +18,7 @@ import { FieldPatternValidator, URLPatternValidator } from 'src/app/shared/valid
 })
 export class RecipeFormComponent implements OnInit {
 
+  public loading :boolean = true;
   public recipeEdit: Recipe;
   public editMode: boolean = false;
 
@@ -90,6 +91,9 @@ export class RecipeFormComponent implements OnInit {
           if(this.editMode){
             this.loadRecipe(id);
           }
+          else{
+            this.loading = false;
+          }
         }
       );    
   }
@@ -114,15 +118,15 @@ export class RecipeFormComponent implements OnInit {
     Now just Load 
   */
   loadFormFromAPI(){
-    this.recipeFormGroup.patchValue(
-      {
-        name: this.recipeEdit.name,
-        description : this.recipeEdit.description,
-        link : this.recipeEdit.link,
-        tags : this.recipeEdit.tags,
-        rate : this.recipeEdit.rate
-      }
-    )
+    this.recipeFormGroup.patchValue({
+      name: this.recipeEdit.name,
+      description : this.recipeEdit.description,
+      link : this.recipeEdit.link,
+      tags : this.recipeEdit.tags,
+      rate : this.recipeEdit.rate
+    });
+
+    this.loading = false;
   }
 
   submitForm(){

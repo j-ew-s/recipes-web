@@ -1,4 +1,4 @@
-<div class="">
+<div class="" *ngIf="!loading">
 
     <div class="row">
         <app-recipe-item  
@@ -6,6 +6,9 @@
             *ngFor="let recipe of recipeList.recipes"
             [recipe]=recipe>
         </app-recipe-item>
-    </div>
-    
+    </div> 
+     
 </div>
+
+<app-loadgin [loading]="loading" ></app-loadgin>
+

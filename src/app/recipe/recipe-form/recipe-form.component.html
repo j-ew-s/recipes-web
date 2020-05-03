@@ -1,6 +1,6 @@
+<app-loadgin [loading]="loading" ></app-loadgin>
 
-
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!loading">
 
     <h3 *ngIf="editMode">Editing Recipe</h3>
     <h3 *ngIf="!editMode">Creating New Recipe</h3>

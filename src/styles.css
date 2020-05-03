@@ -6,3 +6,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 nav a.router-link-active{
     color : rgb(55, 18, 219);
 }
+
+.loading-middle-screen{
+    display: block;
+    margin: 0 auto;
+    margin-top: 50%;
+    margin-left: 50%;
+}
