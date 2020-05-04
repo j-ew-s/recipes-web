@@ -31,6 +31,7 @@ export class RecipeFormComponent implements OnInit {
     2. A Validação a ser utilizada.
   */
   public recipeFormGroup =  this.formBuilder.group({
+    id : [''],
     name : ['', [Validators.required, Validators.minLength(3), FieldPatternValidator(/recipe\b/)]],
     description : [''],
     link : ['', [Validators.required, URLPatternValidator]],
@@ -119,6 +120,7 @@ export class RecipeFormComponent implements OnInit {
   */
   loadFormFromAPI(){
     this.recipeFormGroup.patchValue({
+      id : this.recipeEdit.id,
       name: this.recipeEdit.name,
       description : this.recipeEdit.description,
       link : this.recipeEdit.link,
@@ -130,16 +132,30 @@ export class RecipeFormComponent implements OnInit {
   }
 
   submitForm(){
+    
     var formValue = this.recipeFormGroup.value;
     var recipe = new Recipe(formValue);
-    console.log(recipe);
-    this.recipeService.post(recipe)
-    .subscribe(
-      (data) =>{
-        console.log(data);
-        this.router.navigate(['recipes', {"id" : data['_id']}])
-      }
-    )
+
+    if(this.editMode){
+
+      this.recipeService.put(recipe)
+        .subscribe(
+          (data) =>{
+            this.router.navigate(['recipes', {"id" : data['_id']}])
+          }
+        );
+
+    }
+    else{
+
+      this.recipeService.post(recipe)
+        .subscribe(
+          (data) =>{
+            this.router.navigate(['recipes', {"id" : data['_id']}])
+          }
+        );
+
+    }
   }
 
 }

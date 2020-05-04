@@ -15,6 +15,7 @@ export class BaseService {
   public getRecipes :string; 
   public getRecipeById :string; 
   public postRecipe : string;
+  public putRecipe : string;
 
   /* HEADERS */
   public headers :HttpHeaders;
@@ -49,6 +50,7 @@ export class BaseService {
     this.getRecipes = this.apiURL+"/recipes/";
     this.getRecipeById = this.apiURL+"/recipes/id";
     this.postRecipe = this.apiURL+"/recipes/"
+    this.putRecipe = this.apiURL+"/recipes/"
   }
 
   private setOptions(){

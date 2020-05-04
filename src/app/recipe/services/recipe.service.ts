@@ -46,6 +46,11 @@ export class RecipeService extends BaseService {
     return this.httpClient.post( this.postRecipe, recipe, this.options );
   }
 
+  put(recipe :Recipe) : Observable<object>{
+    let putURL = this.putRecipe + recipe.id;
+    return this.httpClient.put(putURL, recipe, this.options );
+  }
+
   errorHandler( error  : HttpErrorResponse){
     return throwError(error);
   }
