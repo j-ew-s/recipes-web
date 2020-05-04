@@ -1,6 +1,6 @@
 export const ENVS = Object({
     "dev" : {
-        "recipeAPI" : "http://localhost:8061"
+        "recipeAPI" : "http://localhost:8087"
     },
     "qa" : {
         "recipeAPI" : "http://localhost:8088"

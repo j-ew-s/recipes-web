@@ -1,7 +1,60 @@
-<p>Details</p>
 
-<a (click)="backListWithLastViewed()" class="primary">Back to List</a>
+<div>
+    <div class="button-group-edit">
+        <button type="submit" class="btn btn-danger button.edit-group"(click)="backListWithLastViewed()" > Back To the list </button>    
+        <button type="submit" class="btn btn-success button.edit-group"(click)="editRecipe()" > Edit Item </button>
+    </div>
 
-<h2>Selected id {{this.id}}</h2>
+    <div class="image-area" *ngIf="false">
+        <img src="..." class="img-fluid" alt="Responsive image">
+    </div>
 
+    <div class="principal-area">
+       
+        <div class="row"> 
+            <div class="col-1 detail-rate-col">
+                <span *ngIf="recipe.rate == 1"  class="card-icon material-icons icon-image-preview detail-rate-very-dissatisfied" title="Really Bad">sentiment_very_dissatisfied</span>
+                <span *ngIf="recipe.rate == 2"  class="card-icon material-icons icon-image-preview detail-rate-dissatisfied" title="Bad">sentiment_dissatisfied</span>
+                <span *ngIf="recipe.rate == 3"  class="card-icon material-icons icon-image-preview detail-rate-neutral" title="ok">sentiment_neutral</span>
+                <span *ngIf="recipe.rate == 4"  class="card-icon material-icons icon-image-preview detail-rate-satisfied" title="Tasty">sentiment_satisfied</span>
+                <span *ngIf="recipe.rate == 5"  class="card-icon material-icons icon-image-preview detail-rate-very-satisfied" title="Really Taste">sentiment_very_satisfied</span>
+            </div>
+            <div  class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
+                <label class="detail-name"> {{recipe.name}} </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+                <span class="detail-id">id {{this.id}}</span>
+            </div>
+        </div>
+
+        <div class="row detail-property-group">
+            <div>
+                <h4> Description</h4>
+                <div>
+                    <label> {{recipe.description}} </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row detail-property-group">
+            <div>
+                <h4> Link</h4>
+                <div>
+                    <label> {{recipe.link}} </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row detail-property-group">
+            <div>
+                <label> {{recipe.tags}} </label>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 

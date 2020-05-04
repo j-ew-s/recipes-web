@@ -1,5 +1,13 @@
+// ANGULAR
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+
+// SERVICES
+import { RecipeService } from '../services/recipe.service';
+
+// MODELS
+import { Recipe } from '../models/Recipe.model';
+import { ListRecipes } from '../models/ListRecipes.model';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,9 +17,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 export class RecipeDetailComponent implements OnInit {
 
   public id: string;
+  public recipe : Recipe = new Recipe(null);
 
   constructor(private activatedRouter : ActivatedRoute, 
-              private router : Router) { }
+              private router : Router,
+              private recipeService : RecipeService,) { }
 
   ngOnInit(): void {
     /* 
@@ -42,6 +52,8 @@ export class RecipeDetailComponent implements OnInit {
       (params : ParamMap) => {
         let id = params.get('id');
         this.id = id;
+
+        this.loadRecipe(this.id)
       }
     )
 
@@ -69,6 +81,27 @@ export class RecipeDetailComponent implements OnInit {
     */
     //this.router.navigate(['../', {"id" : this.id}], {relativeTo : this.activatedRouter})
 
+  }
+
+
+   /*
+    Carrega a recipe indicada na URL
+  */
+  loadRecipe(id:string):void{
+    this.recipeService
+      .getById(id)
+      .subscribe(
+        (data) =>{    
+          console.log(data);   
+          var recipesList = new ListRecipes(data);
+          console.log(recipesList);
+          this.recipe = recipesList.recipes[0];
+        }
+      );
+  }
+
+  editRecipe(){
+    this.router.navigate(["recipes/"+this.recipe.id+"/edit"]);
   }
 
 }

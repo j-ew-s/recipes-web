@@ -1,0 +1,54 @@
+
+    div.button-group-edit button{
+        margin: 1%;
+        left:  60%;
+        position: relative;
+    }
+
+
+
+    /* Recipe Properties */
+    .detail-name{
+        font-size: 41px;
+        color: #353333;
+    }
+
+    .detail-id{
+        color: gray;
+        font-size: 10px;
+    }
+
+    /* Properties Rows */
+    .detail-property-group{
+        margin-top: 25px;
+    }
+
+    .detail-property-group label{
+        margin-left: 25px;
+    }
+
+
+    /* RATE */
+    .detail-rate-col{
+        max-width: 2.3% !important;
+        padding-left: 0px !important;
+    }
+    .detail-rate{
+        font-size: 18px;
+    }
+
+    .detail-rate-very-satisfied{
+        color: green;
+    }
+    .detail-rate-satisfied{
+        color: rgb(13, 163, 13);
+    }
+    .detail-rate-neutral{
+        color: rgb(46, 23, 131);
+    }
+    .detail-rate-dissatisfied{
+        color: rgb(165, 67, 67);
+    }
+    .detail-rate-very-dissatisfied{
+        color: rgb(128, 0, 0);
+    }

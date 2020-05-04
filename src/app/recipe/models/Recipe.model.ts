@@ -8,20 +8,27 @@ export class  Recipe{
     public tags : string[] = [];
 
     constructor(recipe : object){
-       
-        this.id = recipe['ID'] ? recipe['ID'] : recipe['id'];
-        this.name = recipe['Name'] ? recipe['Name'] : recipe['name'];
-        this.link = recipe['Link'] ? recipe['Link'] : recipe['link'] ;
-        this.description = recipe['Description'] ? recipe['Description'] : recipe['description'];
         
-        let rate = recipe['Rate'] ? recipe['Rate'] : recipe['rate'];
-        let tagValue = recipe['Tags'] ? recipe['Tags'] : recipe['tags'];
+        if(recipe != null){
+            
+            this.id = recipe['ID'] ? recipe['ID'] : recipe['id'];
+            this.name = recipe['Name'] ? recipe['Name'] : recipe['name'];
+            this.link = recipe['Link'] ? recipe['Link'] : recipe['link'] ;
+            this.description = recipe['Description'] ? recipe['Description'] : recipe['description'];
+            
+            let rate = recipe['Rate'] ? recipe['Rate'] : recipe['rate'];
+            let tagValue = recipe['Tags'] ? recipe['Tags'] : recipe['tags'];
 
-        this.setTags(tagValue);
-        this.setRate(rate);
+            this.setTags(tagValue);
+            this.setRate(rate);
+        }
     }
 
-    setTags(tags: string[]): void{
+    setTags(tags: any): void{
+        console.log(tags);
+        if(tags == "" || tags == " " || tags != []){
+            tags = undefined;
+        }
         
         if(tags != undefined){
             tags.forEach(tag => {     
